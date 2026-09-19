@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Developer: Calen Barbour
+         Date: 09-05-2026-->
+        <title>   </title>
+        <link rel="stylesheet" type="text/css" href="./styles/main.css">
+        <script src=scripts\form-validation.js></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Home
+            </h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>        
+       </nav>
+
+       <section>
+        <h2>Contact Form</h2>
+        <form>
+            <fieldset>
+                <legend>Please Provide Your Email Address</legend>
+                <input type="email" id="email" name="email" placeholder="Email Address" class="required">
+            </fieldset>
+        <br/>
+            <fieldset>
+                <legend>Please Type Your Name</legend>
+                <input type="text" id="text" name="text" placeholder="Text Here" class="required">
+            </fieldset>
+        <br/>
+            <fieldset>
+                <legend>Select One</legend>
+                <select id="select" name="Select One" class="required">
+                    <option value="this">This</option>
+                    <option value="that">That</option>
+                    <option value="other">Other</option>
+                </select>
+            </fieldset>
+                
+            <input type="button" value="Submit">    
+        <br/>
+            <span class="required">Required fields are highlighted in red.</span>
+        <br/>
+                
+        </form>
+        <span id="missing-count"></span>
+       </section>

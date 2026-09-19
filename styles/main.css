@@ -1,0 +1,10 @@
+/* Calen Barbour  9-19-2026 */
+
+input:invalid, textarea:invalid, .required {
+	border: 2px solid red;
+	border-radius: 5px;
+}
+
+input:focus:invalid, textarea:focus:invalid {
+	border:none;
+}
