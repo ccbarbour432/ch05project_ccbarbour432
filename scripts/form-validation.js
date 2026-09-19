@@ -1,64 +1,81 @@
+"use strict";
 
-"use strict"
+/*
+    checkMissing()
 
+    This function checks all required fields in the form.
+    It counts the fields that have been left empty and
+    displays the number of missing fields below the form.
+*/
 function checkMissing() {
-    document.getElementById('email, name, select').value = document.getElementById('email, name, select'), value + inVal;
-}
-function displayMe(inVal)
-{
-    document.getElementById('email, name, select').value = document.getElementById('email, name, select').value + inVal;
+    let requiredFields = document.querySelectorAll(".required");
+    let missingCount = 0;
+
+    for (let ndx = 0; ndx < requiredFields.length; ndx++) {
+        if (requiredFields[ndx].value.trim() === "") {
+            missingCount++;
+        }
+    }
+
+    let missingMessage = document.getElementById("missing-count");
+
+    if (missingCount > 0) {
+        missingMessage.textContent =
+            "You are missing " + missingCount + " required field(s).";
+    } else {
+        missingMessage.textContent = "";
+    }
+
+    return missingCount;
 }
 
+
+/*
+    validateEmail()
+
+    This function checks the email field to make sure
+    it contains at least 8 characters. If the email is
+    too short, the invalid-email class is added to give
+    the field a red border.
+*/
 function validateEmail() {
-    document.getElementById('email').value = document.getElementById('email').value + inVal;
+    let email = document.getElementById("email");
+
+    if (email.value.length < 8) {
+        email.classList.add("invalid-email");
+        return false;
+    }
+
+    email.classList.remove("invalid-email");
+    return true;
 }
 
 
-function validate_form(inForm) {
-    let warnArr = document.getElementsByClassName("form_errors");
-    let ndx;
+/*
+    validateForm()
 
-    if(inForm.checkValidity() === false) {
-        let elementsArr = inForm.querySelectorAll(":invalid");
-        let errCount = elementsArr.length - 1;
+    This function runs both checkMissing() and
+    validateEmail() when the button is clicked.
+    It prevents the form from continuing if required
+    information is missing or the email is invalid.
+*/
+function validateForm() {
+    let missingCount = checkMissing();
+    let validEmail = validateEmail();
 
-        for (ndx = 0; ndx < warnArr.length; ndx++) {
-            warnArr[ndx].innerHTML = "You are missing data in " + errCount + " fields in this form.";
-            warnArr[ndx].classList.add("required");
-        }
+    if (missingCount > 0 || !validEmail) {
+        alert("Please complete all required fields and enter a valid email address.");
+        return;
     }
-    else {
-        for (ndx = 0; ndx < warnArr.length; ndx++) {
-            warnArr[ndx].innerHTML = "";
-            warnArr[ndx].classList.remove("required");
-        }
-    }
+
+    alert("Form validation successful!");
 }
 
-// function validate_form(inForm) {
-//     let warnArr = document.getElementsByClassName("form_errors");
-//     let ndx;
-//     const warningElements =
-//         document.getElementsByClassName("form_errors");
 
-//     const invalidElements =
-//         inForm.querySelectorAll(":invalid");
+/*
+    Event listener
 
-//     const formIsValid = inForm.checkValidity();
-
-//     for (let ndx = 0; ndx < warningElements.length; ndx++) {
-//         if (!formIsValid) {
-//             warningElements[ndx].textContent =
-//                 "You are missing data in " +
-//                 (invalidElements.length - 1) +
-//                 " field(s) in this form.";
-
-//             warningElements[ndx].classList.add("required");
-//         } else {
-//             warningElements[ndx].textContent = "";
-//             warningElements[ndx].classList.remove("required");
-//         }
-//     }
-
-//     return formIsValid;
-// }
+    This event listener runs validateForm() when
+    the form's button is clicked.
+*/
+document.getElementById("submit-button").addEventListener("click", validateForm);

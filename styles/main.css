@@ -1,18 +1,19 @@
 /* Calen Barbour  9-19-2026 */
 
 
-input:valid, select:valid {
-	
-	border: 1px solid rgb(0, 0, 0);
- 
-	
 
-}
-input:invalid, textarea:invalid {
-	border: 2px solid rgb(196, 196, 55);
-	border-radius: 5px;
+/* Required fields have a yellow border. */
+.required {
+    border: 2px solid yellow;
 }
 
-input:focus:invalid, textarea:focus:invalid {
-	border:none;
+/* Invalid email fields have a red border. */
+.invalid-email {
+    border: 2px solid red;
+}
+
+/* Message showing the number of missing fields. */
+#missing-count {
+    color: red;
+    font-weight: bold;
 }
