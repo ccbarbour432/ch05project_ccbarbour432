@@ -34,17 +34,17 @@
         <form>
             <fieldset>
                 <legend>Please Provide Your Email Address</legend>
-                <input type="email" id="email" name="email" placeholder="Email Address" class="required">
+                <input type="email" id="email" name="email" placeholder="Email Address" class="required" onclick="displayMe(this.value)">
             </fieldset>
         <br/>
             <fieldset>
                 <legend>Please Type Your Name</legend>
-                <input type="text" id="text" name="text" placeholder="Text Here" class="required">
+                <input type="text" id="name" name="name" placeholder="Name" class="required" onclick="displayMe(this.value)">
             </fieldset>
         <br/>
             <fieldset>
                 <legend>Select One</legend>
-                <select id="select" name="Select One" class="required">
+                <select id="select" name="Select One" class="required" onclick="displayMe(this.value)">
                     <option value="this">This</option>
                     <option value="that">That</option>
                     <option value="other">Other</option>

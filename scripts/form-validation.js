@@ -1,3 +1,7 @@
 function checkMissing() {
-    document.getElementById('email, text, select').value = document.getElementById('email, text, select'), value + inVal;
+    document.getElementById('email').value = document.getElementById('email'), value + inVal;
+}
+function displayMe(inVal)
+{
+    document.getElementById('email').value = document.getElementById('email').value + inVal;
 }
