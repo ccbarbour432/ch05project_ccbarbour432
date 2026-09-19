@@ -1,19 +1,25 @@
+
+"use strict"
+
 function checkMissing() {
-    document.getElementById('email').value = document.getElementById('email'), value + inVal;
+    document.getElementById('email, name, select').value = document.getElementById('email, name, select'), value + inVal;
 }
 function displayMe(inVal)
 {
+    document.getElementById('email, name, select').value = document.getElementById('email, name, select').value + inVal;
+}
+
+function validateEmail() {
     document.getElementById('email').value = document.getElementById('email').value + inVal;
 }
 
 
 function validate_form(inForm) {
-    let warnArr ;
+    let warnArr = document.getElementsByClassName("form_errors");
     let ndx;
-    warnArr = document.getElementsByClassName("form_errors");
 
-    if(inForm.checkValidity == false) {
-        let elementsArr = inForm.querySelectorAll(':invalid');
+    if(inForm.checkValidity() === false) {
+        let elementsArr = inForm.querySelectorAll(":invalid");
         let errCount = elementsArr.length - 1;
 
         for (ndx = 0; ndx < warnArr.length; ndx++) {
@@ -28,3 +34,31 @@ function validate_form(inForm) {
         }
     }
 }
+
+// function validate_form(inForm) {
+//     let warnArr = document.getElementsByClassName("form_errors");
+//     let ndx;
+//     const warningElements =
+//         document.getElementsByClassName("form_errors");
+
+//     const invalidElements =
+//         inForm.querySelectorAll(":invalid");
+
+//     const formIsValid = inForm.checkValidity();
+
+//     for (let ndx = 0; ndx < warningElements.length; ndx++) {
+//         if (!formIsValid) {
+//             warningElements[ndx].textContent =
+//                 "You are missing data in " +
+//                 (invalidElements.length - 1) +
+//                 " field(s) in this form.";
+
+//             warningElements[ndx].classList.add("required");
+//         } else {
+//             warningElements[ndx].textContent = "";
+//             warningElements[ndx].classList.remove("required");
+//         }
+//     }
+
+//     return formIsValid;
+// }

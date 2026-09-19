@@ -5,15 +5,14 @@
          Date: 09-05-2026-->
         <title>   </title>
         <link rel="stylesheet" type="text/css" href="./styles/main.css">
-        <script src=scripts\form-validation.js></script>
+        <script src="./scripts/form-validation.js"></script>
     </head>
 
     <body>
         <header>
             <h1>
                 Home
-            </h1>
-        </header>
+          
 
         <nav>
             <ul>
@@ -28,39 +27,44 @@
                 </li>
             </ul>        
        </nav>
+    </h1>
+    </header>
 
        <section>
         <h2>Contact Form</h2>
 
         <span class="form_errors"></span>
-        
-        <form onsubmit="return(validate_form(this))">
-            <fieldset>
+
+        <form onsubmit="return validate_form(this);" novalidate>
+            
                 <fieldset>
                     <legend>Please Provide Your Email Address</legend>
-                    <input type="email" id="email" name="email" placeholder="Email Address" required onclick="displayMe(this.value)">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required onblur="checkLength(this, 'Confirm Email', 8)">
                 </fieldset>
             <br/>
                 <fieldset>
                     <legend>Please Type Your Name</legend>
-                    <input type="text" id="name" name="name" placeholder="Name" required onclick="displayMe(this.value)">
+                    <input type="text" id="name" name="name" placeholder="Name" required >
                 </fieldset>
             <br/>
                 <fieldset>
                     <legend>Select One</legend>
-                    <select id="select" name="Select One" required onclick="displayMe(this.value)">
+                    <select id="select" name="Select One" required >
+                        <option value=""></option>
                         <option value="this">This</option>
                         <option value="that">That</option>
                         <option value="other">Other</option>
                     </select>
                 </fieldset>
             
+                <span class="form_errors"></span>
+                <form onsubmit = "return(validate_form(this));">
+                <br/>
+            <input type="submit" value="Submit">    
+        <br/>
+            <span>Required fields are highlighted in Yellow.</span>
+        <br/>
                 
-            <input type="button" value="Submit">    
-        <br/>
-            <span class="required">Required fields are highlighted in red.</span>
-        <br/>
-        </fieldset>        
         </form>
         <span id="missing-count"></span>
         <br/>
