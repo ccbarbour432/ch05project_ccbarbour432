@@ -68,7 +68,7 @@ function validateForm() {
         return;
     }
 
-    alert("Form validation successful!");
+    alert("Congratulations, You Won!");
 }
 
 
