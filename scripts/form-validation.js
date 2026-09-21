@@ -1,12 +1,6 @@
 "use strict";
 
-/*
-    checkMissing()
-
-    This function checks all required fields in the form.
-    It counts the fields that have been left empty and
-    displays the number of missing fields below the form.
-*/
+/* This function checks all required fields in the form and tells the user how many are missing. */
 function checkMissing() {
     let requiredFields = document.querySelectorAll(".required");
     let missingCount = 0;
@@ -30,14 +24,7 @@ function checkMissing() {
 }
 
 
-/*
-    validateEmail()
-
-    This function checks the email field to make sure
-    it contains at least 8 characters. If the email is
-    too short, the invalid-email class is added to give
-    the field a red border.
-*/
+/* This function checks the email field to make sure it contains at least 8 characters. */
 function validateEmail() {
     let email = document.getElementById("email");
 
@@ -51,14 +38,7 @@ function validateEmail() {
 }
 
 
-/*
-    validateForm()
-
-    This function runs both checkMissing() and
-    validateEmail() when the button is clicked.
-    It prevents the form from continuing if required
-    information is missing or the email is invalid.
-*/
+/* This function runs both checkMissing() and validateEmail() when the button is clicked. */
 function validateForm() {
     let missingCount = checkMissing();
     let validEmail = validateEmail();
@@ -72,10 +52,5 @@ function validateForm() {
 }
 
 
-/*
-    Event listener
-
-    This event listener runs validateForm() when
-    the form's button is clicked.
-*/
+/* The event listener runs validateForm() when the form's button is clicked. */
 document.getElementById("submit-button").addEventListener("click", validateForm);
